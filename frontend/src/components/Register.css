@@ -1,0 +1,40 @@
+.create-account-text {
+    margin: 10px;
+    text-align: center;
+  }
+  .register-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 280px;
+  }
+  
+  .register-form input, button {
+    height: 40px;
+    border-radius: 10px;
+    margin: 10px;
+    padding-left: 10px;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.559);
+  }
+  
+  button {
+    color: rgb(59, 80, 59);
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .logo {
+    width: 300px;
+    margin: 50px 5px 50px 5px;
+  }
+  
+  .to-signin-page {
+    font-weight: 600;
+  }
