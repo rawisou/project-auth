@@ -1,10 +1,15 @@
+:root {
+--bg-clor: #b13249;
+}
+
 * {
   margin: 0;
   border: 0;
   padding: 0;
   font-family: Quicksand;
+  color: white;
 }
 
 body {
-  background-color: #9eb09f;
+  background-color: var(--bg-clor);
 }

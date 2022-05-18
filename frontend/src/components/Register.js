@@ -23,6 +23,7 @@ const Register = () => {
     return (
         <section className='register-wrapper'>
             <img className='logo' src='./images/logo.svg' alt='logo' />
+            <img className='bookshelf' src='./images/bookshelf.svg' alt='bookshelf' />
             <form className='register-form'>
                 <label htmlFor="signup-form"></label>
                 <p className='create-account-text'>Create a free account to connect with thousands of readers</p>
