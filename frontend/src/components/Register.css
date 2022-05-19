@@ -71,3 +71,7 @@ button:hover:not(:disabled) {
 .bookshelf {
   width: 150px;
 }
+
+.signin-with-google {
+  width: 260px;
+}

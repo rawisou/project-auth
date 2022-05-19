@@ -5,6 +5,16 @@ import User from "../models/SignUp"
 
 const router = express.Router()
 
+const authenticateUser = async (req, re, next) => {
+    const user = await User.findOne({accessToken: req.header('Authorization')})
+    if (user) {
+        req.user = user
+        next()
+    } else {
+        res.status(401).json({loggedOut: true})
+    }
+}
+
 router.post('/signup',(req,res)=>{
     const newUser = new User({
         email: req.body.email,
@@ -20,4 +30,7 @@ router.post('/signup',(req,res)=>{
     })
 })
 
+router.post('/memberzone', async (req,res) => {
+
+})
 module.exports = router
