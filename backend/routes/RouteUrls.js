@@ -1,4 +1,6 @@
 import express from "express"
+import bcrypt from "bcrypt-nodejs"
+
 import User from "../models/SignUp" 
 
 const router = express.Router()
@@ -7,7 +9,7 @@ router.post('/signup',(req,res)=>{
     const newUser = new User({
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: bcrypt.hashSync(req.body.password)
     })
     newUser.save()
     .then(data => {

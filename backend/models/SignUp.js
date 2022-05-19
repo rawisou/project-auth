@@ -1,17 +1,22 @@
 import mongoose from "mongoose"
+import crypto from "crypto"
 
 const signUpTemplate = new mongoose.Schema({
     email:{
         type: String,
-        required: true
+        unique: true
     },
     username:{
         type: String,
-        required: true
+        unique: true
     },
     password:{
         type: String,
         required: true
+    },
+    accessToken:{
+        type: String,
+        default: () => crypto.randomBytes(128).toString('hex')
     },
     date:{
         type: Date,
