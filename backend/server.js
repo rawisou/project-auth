@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose"
+import bodyParser from "body-parser";
 
 import RouteUrls from "./routes/RouteUrls"
 
@@ -19,6 +20,7 @@ const app = express();
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
+app.use(bodyParser.json())
 app.use(express.json());
 app.use('/', RouteUrls)
 

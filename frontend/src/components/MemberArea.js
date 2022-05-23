@@ -1,10 +1,15 @@
 import React from 'react'
 
+import "./MemberArea.css"
+
 const MemberArea = () => {
   return (
-    <section>
-        <p>Suggest a book</p>
-        <p> Book inspiration</p>
+    <section className='container'>
+      <h1>Hello user!</h1>
+      <div> <img src='./images/reader.png' alt='sign out'/> <p>Sign out</p></div>
+        <div> <p>Suggest a book</p> </div>
+        <div> <p>Your bookshelf</p> </div>
+        <div> <p>Events</p> </div>
     </section>
   )
 }
