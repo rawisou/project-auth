@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { singInWithGoogle } from '../services/firebase'
 
-import "./LoginArea.css"
 
 const LoginArea = () => {
   return (

@@ -1,7 +1,5 @@
 import React from 'react'
 
-import "./MemberArea.css"
-
 const MemberArea = () => {
   return (
     <section className='container'>

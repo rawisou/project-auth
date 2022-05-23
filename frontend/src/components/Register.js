@@ -2,15 +2,13 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 
-import './Register.css'
-
-
 const Register = () => {
     const [newUser, setNewUser] = useState({
         email: "",
         username: "",
         password: ""
     })
+    const [isSubmit, setIsSubmit] = useState(false)
 
     const onNewUserSubmit = (event) => {
         event.preventDefault()
