@@ -9,7 +9,6 @@ const Register = () => {
         password: ""
     })
     const [currentUser, setCurrentUser] = useState(null)
-    const [isSubmit, setIsSubmit] = useState(false)
 
     const onNewUserSubmit = (event) => {
         event.preventDefault()
