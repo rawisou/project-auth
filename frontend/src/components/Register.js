@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
-
+import { AuthContext } from 'App';
 
 const Register = () => {
+    const { currentUser, setCurrentUser } = useContext(AuthContext)
     const [newUser, setNewUser] = useState({
         email: "",
         username: "",
         password: ""
     })
-    const [currentUser, setCurrentUser] = useState(null)
 
     const onNewUserSubmit = (event) => {
         event.preventDefault()
@@ -38,7 +38,7 @@ const Register = () => {
         })
     }
 
-    if (currentUser !== null) {
+    if (!!currentUser) {
         return (
             <section className='to-center'>
                 <img className='logo-large' src='./images/logo.svg' alt='logo' />
@@ -84,7 +84,7 @@ const Register = () => {
                     type='submit'
                 >Create an account</button>
             </form>
-            <p>OR</p>
+            <p className='horizontal-line'><span>OR</span></p>
             <button type='submit' className='signin-with-google'>Sign up with Google</button>
             <p>Already have an account? <span className='to-signin-page'>
                 <Link

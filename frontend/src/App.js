@@ -1,13 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Register from 'components/Register'
 import LoginArea from 'components/LoginArea'
 import MemberArea from 'components/MemberArea'
 
+const AuthContext = React.createContext()
 
 const App = () => {
+  const [currentUser, setCurrentUser] = useState(null)
+
   return (
+    <AuthContext.Provider value={{currentUser, setCurrentUser}}>
     <main>
       <BrowserRouter>
         <Routes>
@@ -20,7 +24,9 @@ const App = () => {
         </Routes>
       </BrowserRouter>
     </main>
+ </AuthContext.Provider>
   )
 }
 
+export {AuthContext}
 export default App

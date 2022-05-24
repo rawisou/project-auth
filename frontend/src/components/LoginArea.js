@@ -15,7 +15,7 @@ const LoginArea = () => {
         <input type='password' placeholder='Password' required/>
         <button type='submit'>Sign in</button>
     </form>
-    <p>OR</p>
+    <p className='horizontal-line'><span>OR</span></p>
     <button type='submit' className='signin-with-google'>Sign in with Google</button>
     <p>Don't have an account? <span className='to-signin-page'>  <Link
             to={"/signup"}
