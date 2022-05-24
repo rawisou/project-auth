@@ -6,11 +6,13 @@ import reducer from  './reducers/reducer'
 import Register from 'components/Register'
 import LoginArea from 'components/LoginArea'
 import MemberArea from 'components/MemberArea'
-import { AuthcontextProvider } from 'contexts/AuthContext'
+
+const AuthContext = createContext();
 
 const App = () => {
+  const [authState, authDispatch] = useReducer(reducer, null);
   return (
-    <AuthcontextProvider>
+    <AuthContext.Provider value={{ authState, authDispatch }}>
     <main>
       <BrowserRouter>
         <Routes>
@@ -23,7 +25,7 @@ const App = () => {
         </Routes>
       </BrowserRouter>
     </main>
-    </AuthcontextProvider>
+    </AuthContext.Provider>
   )
 }
 
