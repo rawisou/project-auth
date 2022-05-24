@@ -1,5 +1,6 @@
 const reducer = (state, action) => {
     if (action.type === 'login') {
+        const { username } = action.payload;
         return { username: username }
     }
     if (action.type === 'logout') {

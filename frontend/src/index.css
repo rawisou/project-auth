@@ -17,6 +17,17 @@ body {
   background-color: var(--main-bg-color);
 }
 
+h2 {
+  margin: 50px;
+}
+.to-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 /* MemberArea */
 .container {
   display: flex;
@@ -30,7 +41,7 @@ body {
   text-align: center;
 }
 
-.register-wrapper {
+.main-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;

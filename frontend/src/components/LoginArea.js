@@ -5,7 +5,7 @@ import { singInWithGoogle } from '../services/firebase'
 
 const LoginArea = () => {
   return (
-    <section className='register-wrapper'>
+    <section className='main-wrapper'>
     <img className='logo' src='./images/logo.svg' alt='logo' />
     <img className='bookshelf' src='./images/bookshelf.svg' alt='bookshelf' />
     <form className='register-form'>

@@ -8,11 +8,11 @@ const Register = () => {
         username: "",
         password: ""
     })
+    const [currentUser, setCurrentUser] = useState(null)
     const [isSubmit, setIsSubmit] = useState(false)
 
     const onNewUserSubmit = (event) => {
         event.preventDefault()
-
         const options = {
             method: "POST",
             headers: {
@@ -26,6 +26,7 @@ const Register = () => {
         }
         fetch("http://localhost:8080/signup", options)
             .then((res) => res.json())
+            .then((data) => setCurrentUser(data.username))
     }
 
     const onNewUserValueChange = (event) => {
@@ -36,11 +37,21 @@ const Register = () => {
                 [name]: value
             }
         })
-        console.log(newUser)
     }
 
+    if (currentUser !== null) {
+        return (
+            <section className='to-center'>
+                <img className='logo-large' src='./images/logo.svg' alt='logo' />
+                <h2>Your account has successfully been created. Please click   <Link
+                    to={"/login"}
+                    rel="noopener noreferrer"
+                > here </Link>  to login.</h2>
+            </section>
+        )
+    }
     return (
-        <section className='register-wrapper'>
+        <section className='main-wrapper'>
             <img className='logo' src='./images/logo.svg' alt='logo' />
             <img className='bookshelf' src='./images/bookshelf.svg' alt='bookshelf' />
             <form className='register-form'>
