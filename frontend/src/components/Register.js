@@ -54,12 +54,12 @@ const Register = () => {
         <section className='main-wrapper'>
             <img className='logo' src='./images/logo.svg' alt='logo' />
             <img className='bookshelf' src='./images/bookshelf.svg' alt='bookshelf' />
-            <form className='register-form'>
+            <form className='register-form' onSubmit={onNewUserSubmit}>
                 <label htmlFor="signup-form"></label>
                 <p className='create-account-text'>Create a free account to connect with thousands of readers</p>
                 <input
                     onChange={onNewUserValueChange}
-                    type='text'
+                    type='email'
                     placeholder='Email address'
                     value={newUser.email}
                     name="email"
@@ -83,7 +83,6 @@ const Register = () => {
                 />
                 <button
                     type='submit'
-                    onClick={onNewUserSubmit}
                 >Create an account</button>
             </form>
             <p>OR</p>
