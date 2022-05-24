@@ -1,13 +1,14 @@
-import React from 'react'
+import React, {createContext, useReducer} from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+
+import reducer from  './reducers/reducer'
 
 import Register from 'components/Register'
 import LoginArea from 'components/LoginArea'
 import MemberArea from 'components/MemberArea'
 import { AuthcontextProvider } from 'contexts/AuthContext'
 
-
-export const App = () => {
+const App = () => {
   return (
     <AuthcontextProvider>
     <main>
@@ -25,3 +26,5 @@ export const App = () => {
     </AuthcontextProvider>
   )
 }
+
+export default App
