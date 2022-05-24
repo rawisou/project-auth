@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose"
 import bodyParser from "body-parser";
+import listEndpoints from "express-list-endpoints"
 
 import RouteUrls from "./routes/RouteUrls"
 
@@ -26,7 +27,7 @@ app.use('/', RouteUrls)
 
 // Start defining your routes here
 app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+  res.send(listEndpoints(app));
 });
 
 // Start the server
