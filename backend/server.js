@@ -20,16 +20,17 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
-const allowedDomains = ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "https://localhost:3001", "https://www.netlify.app"]
-app.use(cors({
-  origin: (origin, callback) => {
-    if (allowedDomains.includes(origin)) {
-      return callback(null, true)
-    } else {
-      return callback(new Error("domain not allowed"), false)
-    }
-  }
-}));
+// const allowedDomains = ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "https://localhost:3001", "https://www.netlify.app", 'https://web.postman.co']
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (allowedDomains.includes(origin)) {
+//       return callback(null, true)
+//     } else {
+//       return callback(new Error("domain not allowed"), false)
+//     }
+//   }
+// }));
+app.use(cors())
 app.use(bodyParser.json())
 app.use(express.json());
 app.use('/', RouteUrls)
