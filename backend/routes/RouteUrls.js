@@ -15,25 +15,41 @@ const authenticateUser = async (req, res, next) => {
     }
 }
 
+const salt = bcrypt.genSaltSync()
 router.post('/signup',(req,res)=>{
     const newUser = new User({
         email: req.body.email,
         username: req.body.username,
-        password: bcrypt.hashSync(req.body.password)
+        password: bcrypt.hashSync(req.body.password, salt)
     })
     newUser.save()
-    .then(data => {
-        res.status(201).json(data)
+    .then(() => {
+        res.status(201).json({
+            username: newUser.username,
+            accessToken: newUser.accessToken,
+            userId: newUser._id
+        })
     })
     .catch(err => {
-        res.json(400).json({message: "Please try again", errors: err.errors})
+        res.json(400).json({
+            message: "Please try again", 
+            errors: err.errors,
+            success: false
+        })
     })
 })
 
 router.post('/signin', async(req,res)=> {
-    const user = await User.findOne({email: req.body.email} || {username: req.body.username})
-    if(user && bcrypt.compareSync(req.body.password, user.password)){
-        res.json({userID:user._id, accessToken:user.accessToken})
+    const {email, username, password} = req.body
+    const conditions = !!username ? {username: username} : {email: email};
+    const user = await User.findOne(conditions)
+    if(user && bcrypt.compareSync(password, user.password)){
+        res.json({
+            success: true,
+            userID: user._id, 
+            username: user.username,
+            accessToken: user.accessToken
+        })
     } else {
         res.json({notFound: true})
     }
