@@ -41,7 +41,15 @@ router.post('/signup', (req, res) => {
 
 router.post('/signin', async (req, res) => {
     const { email, username, password } = req.body
-    const conditions = !!username ? { username: username } : { email: email };
+    let conditions
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+        conditions = {email : email}
+    } else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(username)) {
+        conditions = {email : username}
+    } else {
+        conditions = !!username ? { username: username } : { username: email };
+    }
+
     const user = await User.findOne(conditions)
     if (user && bcrypt.compareSync(password, user.password)) {
         res.json({
@@ -51,7 +59,9 @@ router.post('/signin', async (req, res) => {
             accessToken: user.accessToken
         })
     } else {
-        res.json({ notFound: true })
+        res.json({ 
+            success: false,
+            notFound: true })
     }
 })
 

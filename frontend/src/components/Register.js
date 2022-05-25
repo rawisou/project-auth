@@ -1,8 +1,12 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { AuthContext } from 'App';
+import { useNavigate } from 'react-router';
 
 const Register = () => {
+
+    const navigate = useNavigate()
+
     const { currentUser, setCurrentUser } = useContext(AuthContext)
     const [newUser, setNewUser] = useState({
         email: "",
@@ -39,15 +43,10 @@ const Register = () => {
     }
 
     if (!!currentUser) {
-        return (
-            <section className='to-center'>
-                <img className='logo-large' src='./images/logo.svg' alt='logo' />
-                <h2>Your account has successfully been created. Please click   <Link
-                    to={"/login"}
-                    rel="noopener noreferrer"
-                > here </Link>  to login.</h2>
-            </section>
-        )
+        setTimeout(() => {
+            navigate("/signupsuccess")
+        }, 2000)
+        return <h1>LOADING</h1>
     }
     return (
         <section className='main-wrapper'>
