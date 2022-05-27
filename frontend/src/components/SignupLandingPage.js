@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from 'App';
 
-const SignupLandingPage = ({ currentUser }) => {
 
+const SignupLandingPage = () => {
+
+    const {currentUser} = useContext(AuthContext)
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!currentUser) {
+        if (currentUser === null) {
             navigate("/signup");
         } 
     }, [])

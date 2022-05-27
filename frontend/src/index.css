@@ -161,7 +161,7 @@ button:hover:not(:disabled) {
   border-radius: 7px;
   background: rgb(255, 255, 255);
   transition: 0.5s;
-  animation: loading1274 2s ease;
+  animation: loading1274 2s ease infinite;
 }
 
 @keyframes loading1274 {

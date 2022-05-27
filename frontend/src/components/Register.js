@@ -43,10 +43,17 @@ const Register = () => {
     }
 
     if (!!currentUser) {
-        setTimeout(() => {
-            navigate("/signupsuccess")
-        }, 2000)
-    } 
+
+        return (<>
+            <div class="progress-loader">
+                <div class="progress"></div>
+            </div>
+            {setTimeout(() => {
+                navigate("/signupsuccess")
+            }, 2000)}
+        </>)
+
+    }
     return (
         <section className='main-wrapper'>
             <img className='logo' src='./images/logo.svg' alt='logo' />
