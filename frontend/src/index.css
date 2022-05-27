@@ -124,3 +124,64 @@ button:hover:not(:disabled) {
   background: var(--main-bg-color);
   padding:0 10px; 
 }
+
+.auth {
+  display: none;
+}
+
+.not-auth {
+  text-align: center;
+  background-color: rgba(218, 109, 20, 0.293);
+  width: 260px;
+  margin-left: 10px;
+  border-radius: 10px;
+  padding: 5px 0 5px 0;
+}
+
+
+/* From uiverse.io by @mrhyddenn */
+.progress-loader {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.progress-loader {
+  width: 150px;
+  background: rgba(236, 236, 238, 0.253);
+  height: 3px;
+  border-radius: 7px;
+}
+
+.progress {
+  content: '';
+  width: 1px;
+  height: 3px;
+  border-radius: 7px;
+  background: rgb(255, 255, 255);
+  transition: 0.5s;
+  animation: loading1274 2s ease;
+}
+
+@keyframes loading1274 {
+  0% {
+    width: 0%;
+  }
+
+  10% {
+    width: 10%;
+  }
+
+  50% {
+    width: 40%;
+  }
+
+  60% {
+    width: 60%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}

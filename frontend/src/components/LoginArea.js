@@ -6,9 +6,20 @@ import { Link, useNavigate } from 'react-router-dom'
 const LoginArea = () => {
   const [loginInput, setLoginInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
+  const [auth, setAuth] = useState(true)
   // const { currentUser, setCurrentUser } = useContext(AuthContext)
 
   const navigate = useNavigate()
+
+  const onLoginValueChange = (event) => {
+    setLoginInput(event.target.value)
+    setAuth(true)
+  }
+
+  const onPasswordValueChange = (event) => {
+    setPasswordInput(event.target.value)
+    setAuth(true)
+  }
 
   const isEmail = (str) => {
     // Check if email
@@ -19,6 +30,7 @@ const LoginArea = () => {
       return false
     }
   }
+
   const onLogInSubmit = (event) => {
     event.preventDefault()
 
@@ -33,7 +45,7 @@ const LoginArea = () => {
     {
       password: passwordInput
     }
-
+  
     if (isEmail(loginInput)) {
       body.email = loginInput
     } else {
@@ -41,16 +53,15 @@ const LoginArea = () => {
     }
     options.body = JSON.stringify(body)
 
-
     fetch("http://localhost:8080/signin", options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          localStorage.setItem("Authorization", data.accessToken)
+          localStorage.setItem("accessToken", data.accessToken)
           navigate("/memberzone")
-          // setCurrentUser(data.username)
         } else {
-          localStorage.setItem("Authorization", null)
+          localStorage.setItem("accessToken", null)
+          setAuth(false)
         }
       })
   }
@@ -65,13 +76,15 @@ const LoginArea = () => {
         <input
           type='text'
           placeholder='Email address or username'
-          onChange={(event) => setLoginInput(event.target.value)}
+          onChange={onLoginValueChange}
           required />
         <input
           type='password'
           placeholder='Password'
-          onChange={(event) => setPasswordInput(event.target.value)}
+          onChange={onPasswordValueChange}
           required />
+          <div className={`${auth ? "auth" : "not-auth"}`}><p>Incorrect username, email or password.
+            Please try again.</p></div>
         <button type='submit'>Sign in</button>
       </form>
       <p className='horizontal-line'><span>OR</span></p>

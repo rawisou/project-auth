@@ -11,6 +11,7 @@ const AuthContext = React.createContext()
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
 
+
   return (
     <AuthContext.Provider value={{currentUser, setCurrentUser}}>
     <main>

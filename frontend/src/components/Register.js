@@ -46,8 +46,7 @@ const Register = () => {
         setTimeout(() => {
             navigate("/signupsuccess")
         }, 2000)
-        return <h1>LOADING</h1>
-    }
+    } 
     return (
         <section className='main-wrapper'>
             <img className='logo' src='./images/logo.svg' alt='logo' />
