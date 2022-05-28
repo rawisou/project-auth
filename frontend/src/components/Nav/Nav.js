@@ -17,7 +17,7 @@ const Nav = () => {
                 <li><a href="#">News #3</a></li>
             </ul>
         </li>
-        <li><a href="#" onClick={() => {
+        <li><a className='signout' href="#" onClick={() => {
           sessionStorage.clear()
           navigate("/login")
         }}>SIGN OUT</a></li>
