@@ -1,24 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-// import { AuthContext } from 'App';
+import { AuthContext } from 'App';
 
 
 const LoginArea = () => {
   const [loginInput, setLoginInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
-  const [auth, setAuth] = useState(true)
+  const [isCorrectCredentials, setIsCorrectCredentials] = useState(true)
+  const { authUser, setAuthUser } = useContext(AuthContext)
   // const { currentUser, setCurrentUser } = useContext(AuthContext)
 
   const navigate = useNavigate()
 
+  //Is there a way to combine/destructure these 2 functions?
+
   const onLoginValueChange = (event) => {
     setLoginInput(event.target.value)
-    setAuth(true)
+    setIsCorrectCredentials(true)
   }
 
   const onPasswordValueChange = (event) => {
     setPasswordInput(event.target.value)
-    setAuth(true)
+    setIsCorrectCredentials(true)
   }
 
   const isEmail = (str) => {
@@ -45,7 +48,7 @@ const LoginArea = () => {
     {
       password: passwordInput
     }
-  
+
     if (isEmail(loginInput)) {
       body.email = loginInput
     } else {
@@ -57,11 +60,10 @@ const LoginArea = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          localStorage.setItem("accessToken", data.accessToken)
-          navigate("/memberzone")
+          sessionStorage.setItem("accessToken", JSON.stringify(data.accessToken))
+          navigate("/member")
         } else {
-          localStorage.setItem("accessToken", null)
-          setAuth(false)
+          setIsCorrectCredentials(false)
         }
       })
   }
@@ -83,8 +85,8 @@ const LoginArea = () => {
           placeholder='Password'
           onChange={onPasswordValueChange}
           required />
-          <div className={`${auth ? "auth" : "not-auth"}`}><p>Incorrect username, email or password.
-            Please try again.</p></div>
+        <div className={`${isCorrectCredentials ? "auth" : "not-auth"}`}><p>Incorrect username, email or password.
+          Please try again.</p></div>
         <button type='submit'>Sign in</button>
       </form>
       <p className='horizontal-line'><span>OR</span></p>
