@@ -38,7 +38,7 @@ const Member = () => {
     <>
       <Nav/>
       <section className='container large'>
-      <h3>{`Hello ${username} !`}  <img className='reading-icon' src='./images/reader.png' alt='sign out' /></h3>
+      <h3>{`Hello ${username} !`} </h3>
       <p>{`Member since ${memberSince}`}</p>
       <h4>Current book discussion</h4>
         <CurrrentBook/>

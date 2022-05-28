@@ -1,5 +1,6 @@
 h2 {
     margin: 50px;
+    text-align: center;
   }
 /* When signed up, this centered page is rendered */
 .to-center {
@@ -13,4 +14,7 @@ h2 {
 .underlined {
     text-decoration: underline;
 }
-  
+
+.logo-large {
+  width: 60vw;
+}
