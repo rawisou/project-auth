@@ -54,7 +54,7 @@ const LoginArea = () => {
     }
     options.body = JSON.stringify(body)
 
-    fetch("http://localhost:8080/signin", options)
+    fetch("https://libertas-auth.herokuapp.com/signin", options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

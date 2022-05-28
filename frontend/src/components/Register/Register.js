@@ -28,7 +28,7 @@ const Register = () => {
                 password: newUser.password
             })
         }
-        fetch("http://localhost:8080/signup", options)
+        fetch("https://libertas-auth.herokuapp.com/signup", options)
             .then((res) => res.json())
             .then((data) => setCurrentUser(data.username))
     }

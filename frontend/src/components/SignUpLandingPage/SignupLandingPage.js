@@ -22,6 +22,7 @@ const SignupLandingPage = () => {
                 <Link
                     to={"/login"}
                     rel="noopener noreferrer"
+                    className='underlined'
                 > here </Link>  to login.</h2>
         </section>
     )

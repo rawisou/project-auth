@@ -26,7 +26,7 @@ const Member = () => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:8080/memberzone', options)
+    fetch('https://libertas-auth.herokuapp.com/memberzone', options)
       .then((response) => response.json())
       .then((data) => setMemberSince(formatDistance(new Date(data.memberSince), Date.now(), {
         addSuffix: true,

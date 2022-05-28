@@ -9,7 +9,7 @@ import RouteUrls from "./routes/RouteUrls"
 import dotenv from 'dotenv'
 dotenv.config()
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-mongo";
+const mongoUrl = process.env.MONGO_URL || "https://libertas-auth.herokuapp.com/";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 

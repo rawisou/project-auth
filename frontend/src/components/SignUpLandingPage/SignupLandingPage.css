@@ -9,4 +9,8 @@ h2 {
     align-items: center;
     height: 100vh;
   }
+
+.underlined {
+    text-decoration: underline;
+}
   
