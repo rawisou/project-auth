@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { formatDistance } from 'date-fns'
 
+import CurrrentBook from 'components/CurrentBook/CurrrentBook'
+import Nav from 'components/Nav/Nav'
+
 import "./Member.css"
+
 const Member = () => {
   const [memberSince, setMemberSince] = useState("")
   let accessToken = sessionStorage.getItem("accessToken")
@@ -24,26 +28,26 @@ const Member = () => {
   useEffect(() => {
     fetch('http://localhost:8080/memberzone', options)
       .then((response) => response.json())
-      .then((data) => setMemberSince(data.memberSince));
+      .then((data) => setMemberSince(formatDistance(new Date(data.memberSince), Date.now(), {
+        addSuffix: true,
+    })))
   }, []);
 
 
   return (
-    <section className='container'>
-      <h1>{`Hello ${username} !`}</h1>
-      <p className='bolded'>Member since: {formatDistance(new Date(memberSince), Date.now(), {
-                        addSuffix: true,
-                    })} </p>
+    <>
+      <Nav/>
+      <section className='container large'>
+      <h3>{`Hello ${username} !`}  <img className='reading-icon' src='./images/reader.png' alt='sign out' /></h3>
+      <p>{`Member since ${memberSince}`}</p>
+      <h4>Current book discussion</h4>
+        <CurrrentBook/>
+      <p>Our next book discussion is on August 10th, 2022</p>
       <button
-        onClick={() => {
-          sessionStorage.clear()
-          navigate("/login")
-        }}>Sign out</button>
-      <div> <img src='./images/reader.png' alt='sign out' /></div>
-      <div> <p>Suggest a book</p> </div>
-      <div> <p>Your bookshelf</p> </div>
-      <div> <p>Events</p> </div>
+        className='suggest-btn'
+       ><a href='https://libertasbookclub.netlify.app'>Suggest a book</a></button>
     </section>
+    </>
   )
 }
 

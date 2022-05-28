@@ -1,24 +1,55 @@
 /* MemberArea */
+
+h3 {
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+h4 {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+}
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
   }
   
-  .create-account-text {
+.large p {
+    font-size: 1.2em;
+}
+
+.create-account-text {
     margin: 10px;
     text-align: center;
-  }
+}
   
-  .main-wrapper {
+.main-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .bolded {
-      font-weight: 600;
-  }
+.bolded {
+    font-weight: 600;
+}
+
+.reading-icon {
+    width: 50px;
+    margin-left: 10px;
+}
+
+.suggest-btn {
+    padding-right: 10px;
+    width: 240px;
+    margin-top: 20px;
+}
