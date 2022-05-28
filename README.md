@@ -16,6 +16,7 @@ I chose to go with vanilla CSS but when I have time, I will implement SCSS (just
 - create an account
 - sign in using *either* email address *or* username
 - see how long they have been member for in a protected page (only logged in users allowed)
+- see errors in the frontend (and backend) when entering wrong email address, username or password
 
 ## View it live
 
