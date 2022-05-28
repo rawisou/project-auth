@@ -20,62 +20,10 @@ body {
 h2 {
   margin: 50px;
 }
-/* When signed up, this centered page is rendered */
-.to-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-/* MemberArea */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.create-account-text {
-  margin: 10px;
-  text-align: center;
-}
-
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.register-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 280px;
-  margin-bottom: 10px;
-}
-.register-form  input:focus {
-  outline: none;
-  border: 2px solid black;
-}
-
-.register-form input {
-  height: 40px;
-  border-radius: 10px;
-  margin: 10px;
-  padding-left: 10px;
-  border: 1px solid white;
-  background-color: var(--bg-input);
-}
 
 .logo {
   width: 300px;
   margin: 50px 5px 10px 5px;
-}
-
-.to-signin-page {
-  font-weight: 600;
 }
 
 button {
@@ -124,20 +72,6 @@ button:hover:not(:disabled) {
   background: var(--main-bg-color);
   padding:0 10px; 
 }
-
-.auth {
-  display: none;
-}
-
-.not-auth {
-  text-align: center;
-  background-color: rgba(218, 109, 20, 0.293);
-  width: 260px;
-  margin-left: 10px;
-  border-radius: 10px;
-  padding: 5px 0 5px 0;
-}
-
 
 /* From uiverse.io by @mrhyddenn */
 .progress-loader {

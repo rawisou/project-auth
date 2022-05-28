@@ -1,17 +1,15 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { AuthContext } from 'App';
 
+import "./LoginArea.css"
 
 const LoginArea = () => {
   const [loginInput, setLoginInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
   const [isCorrectCredentials, setIsCorrectCredentials] = useState(true)
-  const { authUser, setAuthUser } = useContext(AuthContext)
-  // const { currentUser, setCurrentUser } = useContext(AuthContext)
+  const [currentUser, setCurrentUser] = useState(null)
 
   const navigate = useNavigate()
-
   //Is there a way to combine/destructure these 2 functions?
 
   const onLoginValueChange = (event) => {
@@ -60,13 +58,25 @@ const LoginArea = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          sessionStorage.setItem("accessToken", JSON.stringify(data.accessToken))
-          navigate("/member")
+          sessionStorage.setItem("accessToken", data.accessToken)
+          sessionStorage.setItem("username", data.username)
+          setCurrentUser(true)
         } else {
           setIsCorrectCredentials(false)
         }
       })
   }
+
+  if (!!currentUser) {
+    return (<>
+        <div class="progress-loader">
+            <div class="progress"></div>
+        </div>
+        {setTimeout(() => {
+            navigate("/member")
+        }, 2000)}
+    </>)
+}
 
   return (
     <section className='main-wrapper'>
@@ -91,7 +101,7 @@ const LoginArea = () => {
       </form>
       <p className='horizontal-line'><span>OR</span></p>
       <button type='submit' className='signin-with-google'>Sign in with Google</button>
-      <p>Don't have an account? <span className='to-signin-page'>  <Link
+      <p>Don't have an account? <span className='go-to-signin-page'>  <Link
         to={"/signup"}
         rel="noopener noreferrer"
       >Sign up </Link></span></p>

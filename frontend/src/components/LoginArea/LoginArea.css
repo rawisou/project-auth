@@ -1,0 +1,19 @@
+.go-to-signin-page {
+    font-weight: 600;
+  }
+
+/* Frontend handled errors when users entered wrong password, email or username  */
+.auth {
+    display: none;
+  }
+  
+  .not-auth {
+    text-align: center;
+    background-color: rgba(218, 109, 20, 0.293);
+    width: 260px;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 5px 0 5px 0;
+  }
+  
+  

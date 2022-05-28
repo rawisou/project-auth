@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import Register from 'components/Register'
-import LoginArea from 'components/LoginArea'
-import Member from 'components/Member'
-import SignupLandingPage from 'components/SignupLandingPage'
+import Register from 'components/Register/Register'
+import LoginArea from 'components/LoginArea/LoginArea'
+import Member from 'components/Member/Member'
+import SignupLandingPage from 'components/SignUpLandingPage/SignupLandingPage'
 
 const AuthContext = React.createContext()
 

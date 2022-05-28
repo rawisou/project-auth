@@ -1,0 +1,24 @@
+/* MemberArea */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .create-account-text {
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bolded {
+      font-weight: 600;
+  }

@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from 'App';
 
+import "./SignupLandingPage.css"
 
 const SignupLandingPage = () => {
 

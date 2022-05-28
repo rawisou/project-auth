@@ -70,7 +70,8 @@ router.get('/memberzone', async (req, res) => {
     const getUser = await User.findOne({ accessToken: req.header('Authorization') })
     res.json({
         message: "Hello",
-        username: getUser.username
+        username: getUser.username,
+        memberSince: getUser.date
     })
 })
 

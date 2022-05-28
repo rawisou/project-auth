@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from 'App';
-import { useNavigate } from 'react-router';
+
+import "./Register.css"
 
 const Register = () => {
 
@@ -43,7 +44,6 @@ const Register = () => {
     }
 
     if (!!currentUser) {
-
         return (<>
             <div class="progress-loader">
                 <div class="progress"></div>
@@ -52,8 +52,8 @@ const Register = () => {
                 navigate("/signupsuccess")
             }, 2000)}
         </>)
-
     }
+    
     return (
         <section className='main-wrapper'>
             <img className='logo' src='./images/logo.svg' alt='logo' />
