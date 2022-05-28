@@ -45,7 +45,7 @@ const Member = () => {
       <p>Our next book discussion is on August 10th, 2022</p>
       <button
         className='suggest-btn'
-       ><a href='https://libertasbookclub.netlify.app'>Suggest a book</a></button>
+       ><a href='https://libertasbookclub.netlify.app' target="blank">Suggest a book</a></button>
     </section>
     </>
   )
