@@ -3,18 +3,22 @@
     flex-direction: column;
     max-width: 280px;
     margin-bottom: 10px;
-  }
-  .register-form  input:focus {
+}
+
+.register-form input:focus {
     outline: none;
     border: 2px solid black;
-  }
-  
-  .register-form input {
+}
+
+.register-form input {
     height: 40px;
     border-radius: 10px;
     margin: 10px;
     padding-left: 10px;
     border: 1px solid white;
     background-color: var(--bg-input);
-  }
-  
+}
+
+.to-signin-page {
+    font-weight: 600;
+}

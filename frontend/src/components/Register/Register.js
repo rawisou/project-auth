@@ -89,8 +89,8 @@ const Register = () => {
                     type='submit'
                 >Create an account</button>
             </form>
-            <p className='horizontal-line'><span>OR</span></p>
-            <button type='submit' className='signin-with-google'>Sign up with Google</button>
+            {/* <p className='horizontal-line'><span>OR</span></p>
+            <button type='submit' className='signin-with-google'>Sign up with Google</button> */}
             <p>Already have an account? <span className='to-signin-page'>
                 <Link
                     to={"/login"}
