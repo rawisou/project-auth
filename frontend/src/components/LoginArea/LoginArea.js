@@ -84,7 +84,7 @@ const LoginArea = () => {
       <img className='bookshelf' src='./images/bookshelf.svg' alt='bookshelf' />
       <form className='register-form' onSubmit={onLogInSubmit}>
         <label htmlFor="signup-form"></label>
-        <p className='create-account-text'>Create a free account to connect with thousands of readers</p>
+        <p className='create-account-text'>Sign in to connect with thousands of readers</p>
         <input
           type='text'
           placeholder='Email address or username'
