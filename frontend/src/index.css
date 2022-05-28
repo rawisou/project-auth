@@ -3,6 +3,7 @@
 --yellow: #d7c444;
 --bg-input: #ffffff8f;
 --button-shadow: #dfd9d9;
+--color-placeholder: #353535;
 }
 
 * {
@@ -22,6 +23,7 @@ body {
   margin: 50px 5px 10px 5px;
 }
 
+/* Global style -- buttons */
 button {
   font-size: 1.2em;
   font-weight: 600;
@@ -45,6 +47,23 @@ button:hover:not(:disabled) {
   background-color: var(--yellow);
   cursor: pointer;
   color: black;
+}
+
+/* Global style-- input */
+input::-webkit-input-placeholder {
+  color: var(--color-placeholder);
+}
+
+input:-ms-input-placeholder {
+  color: var(--color-placeholder);
+}
+
+input::-ms-input-placeholder {
+  color: var(--color-placeholder);
+}
+
+input::placeholder {
+  color: var(--color-placeholder);
 }
 
 .bookshelf {
